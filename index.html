@@ -34,12 +34,12 @@
 			#try-again-button {
 			display: none;
 			padding:10px 15px;font-size:35px;
-			color:white;padding:6px 11px;font-size:25px;background-color:black;position: absolute; top: 65%; left: 50%; transform: translate(-50%, -50%);
+			color:white;padding:6px 11px;font-size:35px;background-color:black;position: absolute; top: 65%; left: 50%; transform: translate(-50%, -50%);
 		}
 		#exit-button{
-			color:white;padding:6px 11px;font-size:25px;background-color:black;position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%);
+			color:white;padding:6px 11px;font-size:35px;background-color:black;position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%);
 			display: none;
-			padding:10px 15px;font-size:25px;
+			padding:10px 15px;font-size:35px;
 		}
 					#gif{
 			width: 40%;
@@ -54,8 +54,8 @@
 	<button id="try-again-button">Try Saving Again</button>
 	<button id="exit-button">Exit, if you think saving your Earth is not important.</button>
 	<img src="asset/normal.gif" id="gif" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-	<button id="startButton" style="color:white;padding:10px 15px;font-size:20px;background-color:black;position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Start Game</button>
-	<span id="instruction_st" style="color:white;padding:10px 15px;font-size:18px;background-color:black;position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%);">
+	<button id="startButton" style="color:white;padding:10px 15px;font-size:25px;background-color:black;position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Start Game</button>
+	<span id="instruction_st" style="color:white;padding:10px 15px;font-size:25px;background-color:black;position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%);">
 	</span>
 
 	<canvas id="canvas"></canvas>
@@ -100,7 +100,7 @@
 		});
 
 		// Game loop
-		function loop() {
+		function loop(i=0) {
 			if (gameover) {
 				return;
 			}
@@ -117,7 +117,18 @@
 			}else{
 				density=0.040;
 			}
+if(i=0){
+			const circle = {
+				x: 0,
+				y: 90,
+				radius: 50,
+				image: new Image()
+			}
+			circles.push(circle)
+}
+			i++;
 
+			
 				// Send a new circle towards the center every 2 seconds
 				if (Math.random() < density) {
 					const angle = Math.random() * 2 * Math.PI;
