@@ -8,6 +8,7 @@
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
+			font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
 		}
 		canvas {
 			background: black;
@@ -100,8 +101,8 @@
 		});
 
 	const firstCircle = {
-	x: canvas.width / 1.2,
-	y: canvas.height / 2.3,
+	x: canvas.width,
+	y: canvas.height ,
 	radius: 50,
 	image: new Image()
 };
@@ -154,6 +155,12 @@ circles.push(firstCircle);
 				const distance = Math.sqrt((gif.offsetLeft - circle.x) ** 2 + (gif.offsetTop - circle.y) ** 2);
 				if (distance < gif.width / 2) {
 					gameover = true;
+					    ctx.fillStyle = "white";
+					    ctx.font = "bold 50px Impact";
+					    ctx.textAlign = "center";
+					    ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2 - 50);
+					    ctx.fillText("Score: " + score, canvas.width / 2, canvas.height / 2 + 50);
+
 					//Change image
 					gif.src = "asset/game_over.gif";
 					tryAgainButton=document.getElementById('try-again-button');
