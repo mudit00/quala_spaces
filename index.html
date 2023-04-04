@@ -21,7 +21,7 @@
 		#try-again-button {
 			display: none;
 			padding:10px 15px;font-size:25px;
-			color:white;padding:6px 11px;font-size:18px;background-color:black;position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%);
+			color:white;padding:6px 11px;font-size:25px;background-color:black;position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%);
 		}
 		#exit-button{
 			color:white;padding:6px 11px;font-size:18px;background-color:black;position: absolute; top: 82%; left: 50%; transform: translate(-50%, -50%);
@@ -113,9 +113,9 @@
 			if(score <= 10){
 				density=0.025;
 			}else if(score>10 && score <= 20){
-				density=0.035;
+				density=0.030;
 			}else{
-				density=0.045;
+				density=0.040;
 			}
 
 				// Send a new circle towards the center every 2 seconds
@@ -153,9 +153,9 @@
 					return;
 				}
 				if(score <= 15){
-					speed=3.5;
+					speed=3.0;
 				}else{
-					speed=4.0;
+					speed=3.5;
 				}
 				// Move the circle towards the center
 				const angle = Math.atan2(canvas.height/2 - circle.y, canvas.width/2 - circle.x);
