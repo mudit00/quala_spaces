@@ -100,7 +100,7 @@
 		});
 
 		// Game loop
-		function loop(i=0) {
+		function loop() {
 			if (gameover) {
 				return;
 			}
@@ -117,17 +117,21 @@
 			}else{
 				density=0.040;
 			}
-if(i=0){
-			const circle = {
-				x: 0,
-				y: 90,
-				radius: 50,
-				image: new Image()
-			}
-			circles.push(circle)
-}
-			i++;
 
+const angle = Math.random() * 2 * Math.PI;
+						// Calculate the starting position of the circle outside the canvas
+						const x = gif.offsetLeft + Math.cos(angle) * canvas.width;
+						const y = gif.offsetTop + Math.sin(angle) * canvas.height;
+							const circle = {
+								x: x,
+								y: y,
+								radius: 50,
+								image: new Image()
+							}
+							var arr = ["ac", "car","hm_logo", "jeans","man","plane","plastic_bag"];
+
+							circle.image.src = "asset/"+arr[(Math.floor(Math.random() * arr.length))]+".PNG";
+							circles.push(circle);
 			
 				// Send a new circle towards the center every 2 seconds
 				if (Math.random() < density) {
